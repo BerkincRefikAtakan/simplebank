@@ -10,7 +10,7 @@ RETURNING *;
 
 -- name: GetEntry :one
 SELECT * FROM entries
-ORDER BY id = $1 LIMIT 1;
+WHERE id = $1 LIMIT 1;
 
 
 -- name: ListEntry :many
