@@ -45,9 +45,12 @@ jobs:
 
     - name: Install golang-migrate
       run: |
-        curl -L https://github.com/golang-migrate/migrate/releases/latest/download/migrate.darwin-amd64.tar.gz | tar xvz
-        sudo mv migrat.linux-amd64 /usr/bin/migrate
+        curl -L https://github.com/golang-migrate/migrate/releases/latest/download/migrate.darwin-amd64.tar.gz -o migrate.tar.gz
+        tar -xvf migrate.tar.gz
+        sudo mv migrate /usr/local/bin/
+        rm migrate.tar.gz
         migrate -version
+
 
 
     - name: Run migrations
